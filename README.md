@@ -1,7 +1,4 @@
-# mern-auth
-
-![Final App](https://i.postimg.cc/tybZb8dL/final-MERNAuth.gif)
-Minimal full-stack MERN app with authentication using passport and JWTs.
+# ServicePro
 
 This project uses the following technologies:
 
@@ -13,7 +10,7 @@ This project uses the following technologies:
 
 ## Configuration
 
-Make sure to add your own `MONGOURI` from your [mLab](http://mlab.com) database in `config/keys.js`.
+
 
 ```javascript
 module.exports = {
@@ -27,6 +24,7 @@ module.exports = {
 ```javascript
 // Install dependencies for server & client
 
+npm install && npm run client-install
 // Run client & server with concurrently
 npm run dev
 

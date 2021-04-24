@@ -45,9 +45,7 @@ class ServiceData {
     findByServiceID(id) {
         return this.model.findOne({_id: id})
     }
-    search(service){
-        return this.model.find({service : service});
-    }
+   
     findByOwner(id){
         return this.model.find({owner:id});
     }

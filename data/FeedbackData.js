@@ -7,7 +7,7 @@ class FeedbackData {
     create(n, d, id) {     
         console.log(n, d, id);
 
-    const newReview = { name:n, description: d , service:id };
+    const newReview = { name:n, description: d , sid:id };
     const review = new this.model(newReview);
     return review.save();
     }
