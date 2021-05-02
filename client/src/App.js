@@ -11,11 +11,12 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
+import Dashboard1 from "./components/dashboard/Dashboard1";
+import serviceResult from "./components/serviceList";
 import Home from "./home";
 import About from "./About";
 import Contact from "./Contact";
-import DashOwner from "./DashOwner";
-import DashUser from "./DashUser";
+// import DashUser from "./components/dashboard/DashUser";
 import { Link } from "react-router-dom";
 
 
@@ -29,13 +30,16 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/About" component={About} />
             <Route exact path="/Contact" component={Contact} />
-            <Route exact path="/DashOwner" component={DashOwner} />
-            <Route exact path="/DashUser" component={DashUser} />
-            {/* <Route exact path="/" component={Landing} /> */}
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/result" component={serviceResult} />
             <Switch>
+              
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              
+            </Switch>
+            <Switch>
+              <PrivateRoute exact path="/dashowner" component={Dashboard1} />
             </Switch>
           </div>
         </Router>
