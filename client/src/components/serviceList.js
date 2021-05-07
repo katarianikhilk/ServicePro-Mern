@@ -1,22 +1,29 @@
-import Nav from './layout/Nav.js'
-import NavItem from './layout/NavItem.js'
-import List from './layout/List.js'
-import ListItem from './layout/ListItem.js'
+import React from 'react';
+import axios from 'axios';
 
-export default function Recipes() {
-  var recipes = [{id:1, name: 'nikhil', description: 'dsklfksjdnfkd', price:15, quantity:12}]
-  return (
-    <div className="divide-y divide-gray-100">
-      <Nav>
-        <NavItem href="/featured" isActive>Featured</NavItem>
-        <NavItem href="/popular">Popular</NavItem>
-        <NavItem href="/recent">Recent</NavItem>
-      </Nav>
-      <List>
-        {recipes.map((recipe) => (
-          <ListItem key={recipe.id} recipe={recipe} />
-        ))}
-      </List>
-    </div>
-  )
+axios.defaults.headers.common['Authorization'] = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwODI5YWYxYjM2NDEwMzEzYzc5MzUyNiIsIm5hbWUiOiJOaWtoaWwgS2F0YXJpYSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MTkxODE5OTUsImV4cCI6MTY1MDczODkyMX0.ZGjdQ5wOJeSnVv7XYaloaVvdQVvieCmqqdnLIDtGvAU";
+
+
+
+export default class serviceList extends React.Component {
+
+  state = {
+    list:[],
+  };
+
+  componentDidMount() {
+    axios.get('/service/?long=28.1862388&latt=75.4982336&service=AC').then(res=>{
+      console.log(res);
+      this.setState({list:res.data}) ;
+    });
+  }
+
+  render() {
+    return (
+      <u1>
+        {this.state.list.map(store=> <li>{store.name}</li>)}
+      </u1>
+    )
+  }
+
 }

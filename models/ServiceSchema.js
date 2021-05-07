@@ -6,10 +6,10 @@ const Schema = mongoose.Schema;
 const serviceSchema = new mongoose.Schema({
         name: {type: String,required: true},
         price: {type: Number, required: true},
-        description: {type: String, required: true},
+        description: {type: String},
         date: {type: Date,default: Date.now},
-        service: {type:String, required: true},
-        owner: {type: Schema.Types.ObjectId, ref: 'users',required: true}, 
+        service: {type:String},
+        owner: {type: Schema.Types.ObjectId, ref: 'users'}, 
         location: {
             type: {
               type: String, // Don't do `{ location: { type: String } }`
@@ -23,5 +23,7 @@ const serviceSchema = new mongoose.Schema({
           }
     
     })
+
+  
 serviceSchema.index({ location: "2dsphere" });
 module.exports = mongoose.model('service',serviceSchema);

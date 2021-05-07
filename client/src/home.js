@@ -1,64 +1,33 @@
-import React from "react";
+import React,{useState, useEffect}  from 'react';
 import { Link } from "react-router-dom";
 import './base.css';
 
 function Home() {
+    useEffect(()=>{
+          
+      feedLocation();
+  }, []);
+
+  const [location, setLocation] = useState(
+      {
+          lat: '',
+          lng: '',
+      }
+
+  );
+
+
+  const feedLocation = () => {
+      navigator.geolocation.getCurrentPosition(function(position) {
+          console.log("Latitude is :", position.coords.latitude);
+          console.log("Longitude is :", position.coords.longitude);
+          setLocation({ lat: position.coords.latitude, lng: position.coords.longitude});            
+          
+        });
+  }
   return (
     <div className="home">
-      <header class="text-gray-400 bg-gray-900 body-font">
-        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-          <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
-            <svg
-              xmlns="/logo1.png"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-            </svg>
-            <span href="home.js" class="ml-3 text-xl">
-              ServicePro
-            </span>
-          </a>
-          <nav >
-            <a href="/" class="mr-5 hover:text-white">
-              Laptop
-            </a>
-            <a href="/About" class="mr-5 hover:text-white">
-              Smartphones
-            </a>
-            <a href="/Contact" class="mr-5 hover:text-white">
-              Smart-watches
-            </a>
-            <a href="/" class="mr-5 hover:text-white">
-              Domestic-Appliances
-            </a>
-          </nav>
-
-          <button class="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0">
-          <a href="/login" class="mr-5 hover:text-white">
-              Log In
-            </a>
-            
-            <svg
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              class="w-4 h-4 ml-1"
-              viewBox="0 0 24 24"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </button>
-        </div>
-      </header>
-
+      
       <section class="text-gray-600 body-font">
         <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
           <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
@@ -117,8 +86,10 @@ function Home() {
                 <h2 class="text-lg text-white font-medium title-font mb-4">
                   Laptops
                 </h2>
+
                 <button class="inline-flex text-white bg-indigo-500 border-0 py-1 px-4 focus:outline-none hover:bg-indigo-600 rounded">
-                  Search
+                  <Link to={`/search/${location.lat}/${location.lng}/${"AC"}`}>Search</Link>
+                  
                 </button>
               </div>
             </div>

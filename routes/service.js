@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken');
 app.get('/',(req, res) => {
 
 
-    dataRepo.findAll(req.query.long, req.query.latt, req.query.service).then((reviews)=>{
+    dataRepo.findAll(req.query.lat,req.query.lng, req.query.service).then((reviews)=>{
         res.json( reviews);
 
     }).catch((error)=>console.log(error));
@@ -21,6 +21,8 @@ app.post('/', verifyToken,(req, res) => {
         if(err) {
           res.sendStatus(403);
         } else {
+          console.log(req.token);
+          console.log(req.body)
             dataRepo.create(req.body.name, req.body.price, req.body.description, req.body.service, req.body.uid, req.body.lat, req.body.long).then((review) => {
                 res.json(review);
                 }).catch((error) => console.log(error));
@@ -45,9 +47,9 @@ app.put('/', verifyToken,(req, res) => {
 
 
 
-app.get('/byid/:id',(req, res) => {
-    console.log(req.params.id);
-    dataRepo.findByServiceID(req.params.id).then((service)=>{
+app.get('/byid',(req, res) => {
+    console.log(req.query.id);
+    dataRepo.findByServiceID(req.query.id).then((service)=>{
         res.json( service);
 
     }).catch((error)=>console.log(error));

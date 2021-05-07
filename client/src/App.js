@@ -12,12 +12,16 @@ import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
 import Dashboard1 from "./components/dashboard/Dashboard1";
-import serviceResult from "./components/serviceList";
+import serviceResult from "./components/ShopListing";
 import Home from "./home";
 import About from "./About";
 import Contact from "./Contact";
+import AddShop from "./AddShop";
+import Test from "./Test";
 // import DashUser from "./components/dashboard/DashUser";
 import { Link } from "react-router-dom";
+import Search from './Search';
+import DetailView from './DetailView';
 
 
 class App extends Component {
@@ -26,21 +30,32 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
-            {/* <Navbar /> */}
-            <Route exact path="/" component={Home} />
-            <Route exact path="/About" component={About} />
-            <Route exact path="/Contact" component={Contact} />
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/result" component={serviceResult} />
+           
+            
+            <Navbar />
             <Switch>
-              
+              <Route exact path="/test" component={Test} />
+              <Route exact path="/" component={Home} />
+              <Route exact path="/About" component={About} />
+              <Route exact path="/Contact" component={Contact} />
+              <Route exact path="/register" component={Register} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/result" component={serviceResult} />
+              <Route exact path="/addshop" component={AddShop} />
+              <Route path="/search/:lat/:lng/:name" component={Search}/>
+              <Route path="/service/:_id" component={DetailView}/>
+            
+                
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
+                
               
-            </Switch>
-            <Switch>
+              
               <PrivateRoute exact path="/dashowner" component={Dashboard1} />
+
+
             </Switch>
+            
+            
           </div>
         </Router>
       </Provider>

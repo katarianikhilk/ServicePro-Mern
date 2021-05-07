@@ -4,12 +4,12 @@ class ServiceData {
     constructor(model) {
     this.model = model;
     }
-    create(name, price, d, s, uid, lat,long) {     
+    create(name, price, d, s, uid, lat,long, photo) {     
         console.log(name, price, d, s, uid);
         
         const denver = { type: 'Point', coordinates: [lat, long] };
 
-    const newService = { name:name, price:price, description: d,service:s, owner: uid, location:denver};
+    const newService = { name:name, price:price, description: d,service:s, owner: uid, location:denver, photo: photo};
     const service= new this.model(newService);
     return service.save();
     }
@@ -32,7 +32,7 @@ class ServiceData {
             service : service,
             location: {
              $near: {
-              $maxDistance: 1000,
+              $maxDistance: 10,
               $geometry: {
                type: "Point",
                coordinates: [long, latt]
