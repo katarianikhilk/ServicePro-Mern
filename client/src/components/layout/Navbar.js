@@ -31,17 +31,13 @@ function Navbar() {
                 <Link to="./About">Know More About us</Link>
               </a>
               <a href="/DashOwner" class="mr-5 hover:text-white">
-                <Link to="./DashOwner">Owner</Link>
+                <Link to="./DashOwner">Dashboard</Link>
               </a>
-              <a href="/DashUser" class="mr-5 hover:text-white">
-                <Link to="./DashUser">User</Link>
-              </a>
+              
               <a href="/Contact" class="mr-5 hover:text-white">
                 <Link to="./Contact">Contact</Link>
               </a>
-              <a href="/ShopListing" class="mr-5 hover:text-white">
-                <Link to="./ShopListing">ShopListing</Link>
-              </a>
+              
             </span>
           </div>
         </div>

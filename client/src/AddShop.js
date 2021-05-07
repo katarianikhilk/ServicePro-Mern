@@ -5,7 +5,7 @@ import qs from 'qs';
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 axios.defaults.headers.common['Authorization'] = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwODI5YWYxYjM2NDEwMzEzYzc5MzUyNiIsIm5hbWUiOiJOaWtoaWwgS2F0YXJpYSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MTkxODE5OTUsImV4cCI6MTY1MDczODkyMX0.ZGjdQ5wOJeSnVv7XYaloaVvdQVvieCmqqdnLIDtGvAU";
 
-function AddShop() {
+function AddShop({match}) {
   const [newUser, setNewUser] = useState(
     {   ownername: '',
         email: '',
@@ -15,7 +15,7 @@ function AddShop() {
         price: '',
         description: '',
         service: '',
-        uid: '607455a6d7c4d43680c0df35',
+        uid: match.params.id,
         latt: '',
         long: '',
     }

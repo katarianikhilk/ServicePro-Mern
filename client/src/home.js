@@ -88,7 +88,7 @@ function Home() {
                 </h2>
 
                 <button class="inline-flex text-white bg-indigo-500 border-0 py-1 px-4 focus:outline-none hover:bg-indigo-600 rounded">
-                  <Link to={`/search/${location.lat}/${location.lng}/${"AC"}`}>Search</Link>
+                  <Link to={`/search/${location.lat}/${location.lng}/${"Laptop"}`}>Search</Link>
                   
                 </button>
               </div>
@@ -104,7 +104,8 @@ function Home() {
                   Smartphones
                 </h2>
                 <button class="inline-flex text-white bg-indigo-500 border-0 py-1 px-4 focus:outline-none hover:bg-indigo-600 rounded">
-                  Search
+                  <Link to={`/search/${location.lat}/${location.lng}/${"Smartphone"}`}>Search</Link>
+                  
                 </button>
               </div>
             </div>
@@ -119,7 +120,8 @@ function Home() {
                   Domestic Appliances
                 </h2>
                 <button class="inline-flex text-white bg-indigo-500 border-0 py-1 px-4 focus:outline-none hover:bg-indigo-600 rounded">
-                  Search
+                  <Link to={`/search/${location.lat}/${location.lng}/${"Appliances"}`}>Search</Link>
+                  
                 </button>
               </div>
             </div>
@@ -134,7 +136,8 @@ function Home() {
                   Smartwatches
                 </h2>
                 <button class="inline-flex text-white bg-indigo-500 border-0 py-1 px-4 focus:outline-none hover:bg-indigo-600 rounded">
-                  Search
+                  <Link to={`/search/${location.lat}/${location.lng}/${"Smartwatch"}`}>Search</Link>
+                  
                 </button>
               </div>
             </div>

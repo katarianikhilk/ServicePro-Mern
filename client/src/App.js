@@ -22,6 +22,9 @@ import Test from "./Test";
 import { Link } from "react-router-dom";
 import Search from './Search';
 import DetailView from './DetailView';
+import AddReview from "./AddReview";
+import ReqService from "./ReqService";
+import MyServices from "./MyServices";
 
 
 class App extends Component {
@@ -34,16 +37,19 @@ class App extends Component {
             
             <Navbar />
             <Switch>
-              <Route exact path="/test" component={Test} />
+              {/* <Route exact path="/test" component={Test} /> */}
               <Route exact path="/" component={Home} />
               <Route exact path="/About" component={About} />
               <Route exact path="/Contact" component={Contact} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
-              <Route exact path="/result" component={serviceResult} />
-              <Route exact path="/addshop" component={AddShop} />
+              {/* <Route exact path="/result" component={serviceResult} /> */}
+              <Route exact path="/addshop/:id" component={AddShop} />
               <Route path="/search/:lat/:lng/:name" component={Search}/>
               <Route path="/service/:_id" component={DetailView}/>
+              <Route exact path="/ReqService/:id" component={ReqService} />
+              <Route exact path="/MyServices/:id" component={MyServices} />
+              <Route exact path="/AddReview/:id" component={AddReview} />
             
                 
               <PrivateRoute exact path="/dashboard" component={Dashboard} />

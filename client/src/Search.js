@@ -12,18 +12,7 @@ function Search({match}) {
   
     const [items, setItems] = useState([]);
     const fetchItem = async () => {
-        // const data = await fetch(`https://fortnite-api.theapinetwork.com/item/get?id=${match.params.id}`);
-        // // console.log(data);
 
-        // const item = await data.json();
-        // console.log(item.data);
-        // console.log(match.params.lat)
-        // console.log(match.params.lng)
-        // console.log(match.params.name)
-        // console.log( match.params.lat+"&lng="+match.params.lng+"&service="+match.params.name);
-
-        // setItem(item.data)
-        // http://localhost:5000/service/?lat=27.023803599999997&lng=74.21793260000001&service=AC
         axios.get(`/service/${"?lat="+ match.params.lat+"&lng="+match.params.lng+"&service="+match.params.name}`).then(res=>{
             console.log(res.data);
             // this.setState({list:res.data}) ;
@@ -36,12 +25,13 @@ function Search({match}) {
         <div class="container px-5 py-24 mx-auto">
           <div class="flex flex-col text-center w-full mb-12">
             <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
-              Available Service Centers
+              Available Service Centers for {match.params.name}
             </h1>
           </div>
           <div class="lg:w-1/2 md:w-2/3 mx-auto">
             <div class="flex flex-wrap -m-2"></div>
             <div class="p-2 w-full">
+            {items.length==0 ? <h1>No Service available in this Area</h1> :<h1></h1>}
             
             {items.map(item =>(
                 <Link to={`/service/${item._id}`}>

@@ -2,6 +2,7 @@ import { logoutUser } from "../../actions/authActions";
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { Route, Link } from "react-router-dom";
 
 
 
@@ -13,10 +14,9 @@ class DashUser extends Component {
 
   render() {
     const { user } = this.props.auth;
+    console.log(user);
     return(
-<div className="DashUser">
-      
-
+      <div className="DashUser">
       <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
           <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
@@ -142,7 +142,7 @@ class DashUser extends Component {
               </div>
             </div>
           </div>
-          <button onClick={this.onLogoutClick} class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+          <button class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
             Log Out
           </button>
         </div>
@@ -153,17 +153,19 @@ class DashUser extends Component {
           <p class="text-sm text-gray-400 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-4">
             © 2021 ServicePro —
             <a
-              href="https://twitter.com/knyttneve"
+              href="/"
               class="text-gray-500 ml-1"
               target="_blank"
               rel="noopener noreferrer"
             >
               &Team
+              <Link to="/"> ServicePro</Link>
             </a>
           </p>
         </div>
       </footer>
     </div>
+
     );
   }
 }
